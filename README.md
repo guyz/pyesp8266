@@ -15,7 +15,7 @@ Before connecting the module to a microcontroller, it's important to try it dire
 
 #### Hardware setup
 
-<<esp pintout>> << ftdi pinout >>
+![alt text](https://raw.githubusercontent.com/guyz/pyesp8266/master/esp8266_pinout.png "ESP8266 Pinout") ![alt text](https://raw.githubusercontent.com/guyz/pyesp8266/master/ftdi_pinout.png "FTDI Pinout")
 
 1. Connect the RX/TX pins in a 3v3 FTDI cable to the TX/RX pins in the ESP module.
 2. Connect a 3v3 power supply to the VCC/GND pins. Note that it is possible to use an Arduino 3v3 supply for this.
