@@ -41,14 +41,15 @@ def send_cmd( sCmd, waitTm=1, retry=5 ):
 	logging.info( "Command result: %s" % ret )
 	return ret
 
-if len(sys.argv) != 4:
-	print "Usage: esp8266test.py port ssid password"
+if len(sys.argv) != 5:
+	print "Usage: esp8266test.py port baud_rate ssid password"
 	sys.exit()
 
 port = sys.argv[1]
-speed = 9600
-ssid = sys.argv[2]
-pwd = sys.argv[3]
+#Baud rate should be: 9600 or 115200
+speed = sys.argv[2]
+ssid = sys.argv[3]
+pwd = sys.argv[4]
 
 ser = serial.Serial(port,speed)
 if ser.isOpen():
@@ -60,10 +61,11 @@ send_cmd( "AT" )
 # send_cmd( "AT+RST", 5 ) # NOTE: seems to cause problems that require manually reset (pulling down the RST pin)
 # sleep(3)
 send_cmd( "AT+CWMODE=1" ) # set device mode (1=client, 2=AP, 3=both)
+#The mode will be changed on Olimex MOD-WIFI-ESP8266-DEV only after a reset
+#The command below will reset the device
+send_cmd( "AT+RST");
 send_cmd( "AT+CWLAP", 10) # scan for WiFi hotspots
 send_cmd( "AT+CWJAP=\""+ssid+"\",\""+pwd+"\"", 5 ) # connect
 addr = send_cmd( "AT+CIFSR", 5) # check IP address
 
 ser.close()
-
-

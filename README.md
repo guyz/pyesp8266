@@ -25,7 +25,7 @@ Before connecting the module to a microcontroller, it's important to try it dire
 ### Software and testing:
 1. Clone this repository.
 2. Unzip and execute the following command:
-```python esp8266test.py <serial_port> <ssid> <password> ```
+```python esp8266test.py <serial_port> <baud_rate> <ssid> <password> ```
 3. You should see a bunch of commands going through, including a list of available APs. Eventually, you should see the IP address assigned to the module printed.
 4. ping the IP address obtained in (3). If that works, then you got it working and can start doing cool stuff!
 
