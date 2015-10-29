@@ -79,14 +79,15 @@ def process_request(response):
 		# process response
 		send_response(response, cid)
 
-if len(sys.argv) != 4:
-	print "Usage: esp8266test.py port ssid password"
+if len(sys.argv) != 5:
+	print "Usage: esp8266test.py port baud_rate ssid password"
 	sys.exit()
 
 port = sys.argv[1]
-speed = 9600
-ssid = sys.argv[2]
-pwd = sys.argv[3]
+#Baud rate should be: 9600 or 115200
+speed = sys.argv[2]
+ssid = sys.argv[3]
+pwd = sys.argv[4]
 p = 80
 
 ser = serial.Serial(port,speed)
