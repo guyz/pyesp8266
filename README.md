@@ -60,6 +60,8 @@ If you encountered issues, check the following:
 2. When trying to issue commands, do you see the blue LED on the module blinking? If not, check the RX/TX connections. If the LED is constantly lit, then one of the connections is wrong - probably RX/TX or one of the other pins.
 3. Are you seeing gibberish? You're probably doing well, but try a different BAUD rate.
 
+If you receive the error `ImportError: No module named serial`
+Run `sudo pip install pyserial`
 
 ### Testing the module via a microcontroller
 
